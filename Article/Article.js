@@ -112,3 +112,46 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleComponentCreator(title, firstParagraph, secondParagraph, thirdParagraph) {                                 //function creation
+  let article = document.createElement('div'); //div
+  article.classList.add('article');
+  
+  let artcileTitle = document.createElement('h2'); //h2
+  artcileTitle.textContent = "title";
+
+  let artcileDate = document.createElement("p");  //date
+  artcileDate.classList.add('date');
+  artcileDate.textContent = "date";
+
+  let articleParagraph1 = document.createElement('p'); //paragraph 1
+  articleParagraph1.textContent = "firstParagraph";
+
+  let articleParagraph2 = document.createElement('p'); //paragraph 2
+  articleParagraph2.textContent = "secondParagraph";
+
+  let articleParagraph3 = document.createElement('p'); //paragraph 3
+  articleParagraph3.textContent = "thirdParagraph";
+
+  let articleButton = document.createElement('span');   //span
+  articleButton.classList.add("expandButton");
+  articleButton.textContent = "click me";
+  articleButton.addEventListener("click", (event) => {
+    article.classList.toggle("artcile-open"); //event listener to toggle
+  })
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articlePara1);
+  article.appendChild(articlePara2);
+  article.appendChild(articlePara3);
+  article.appendChild(articleButton);
+  
+  return artcile;
+};
+
+  const articles = document.querySelector('.articles');
+  data.forEach((articleObj) => {
+    let articleComponent = articleComponentCreator(articleObj.title, articleObj.date, articleObj.firstParagraph, articleObj.secondParagraph, articleObj.thirdParagraph);
+    console.log(articleComponent);
+    articles.appendChild(articleComponent);
+})
